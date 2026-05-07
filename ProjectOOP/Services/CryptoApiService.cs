@@ -32,6 +32,8 @@ namespace ProjectOOP
 
             var result = new List<CryptoModel>();
             int rank = 1;
+
+            // loop door elk item in de JSON-array en maak een CryptoModel ervan
             foreach (var elem in doc.RootElement.EnumerateArray())
             {
                 var sparkline = new List<double>();
