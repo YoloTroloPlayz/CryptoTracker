@@ -52,6 +52,7 @@ namespace ProjectOOP
                     Rank = rank++,
                     // TryGetProperty haalt "current_price" op in en steekt da in "pr", ValueKind checkt of het een getal is
                     // (CoinGecko kan null terugsturen), anders crasht GetDouble(). Fallback = 0.
+                    // JsonValueKind is een enum uit System.Text.Json
                     Price = elem.TryGetProperty("current_price", out var pr) && pr.ValueKind == JsonValueKind.Number ? pr.GetDouble() : 0,
                     Change24h = elem.TryGetProperty("price_change_percentage_24h", out var ch) && ch.ValueKind == JsonValueKind.Number ? ch.GetDouble() : 0,
                     MarketCap = elem.TryGetProperty("market_cap", out var mc) && mc.ValueKind == JsonValueKind.Number ? mc.GetDouble() : 0,
